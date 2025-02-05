@@ -1,25 +1,24 @@
-import express from 'express'
-import cors from 'cors'
+import express from 'express';
+import cors from 'cors';
+import { digitSum, isPrime } from './helper/helpers.js';
+import router from './routes/routes.js';
+import classifyApi from './controller/controller.js';
 
 const app = express();
-const port = 8000 || 3000
+const port = process.env.PORT || 8000;
 
-app.use(express.json())
-app.use(express.urlencoded({extended: false}))
-app.use(cors())
+const corsOptions = {
+    origin: '*',
+    methods: ['GET'],
+    allowedHeaders: ['Content-Type']
+}; 
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors(corsOptions));
 
-app.get('/api/classify-number', (req, res) => {
-    const number = req.query.number
-    console.log(number) 
-    res.send()
-
-})
+app.get('/classify-api', classifyApi);
 
 app.listen(port, () => {
-    console.log(`Server has started on port: ${port}`)
-})
-
-
-
-
+    console.log(`Server has started on port: ${port}`);
+});
