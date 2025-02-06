@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
 
-app.get('/classify-api', classifyApi);
+app.get('/api/classify-api', classifyApi);
 
 app.listen(port, () => {
     console.log(`Server has started on port: ${port}`);

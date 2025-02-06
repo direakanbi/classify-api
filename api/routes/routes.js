@@ -3,6 +3,6 @@ import { classifyApi } from "../controller/controller.js";
 
 const router = Router();
 
-router.get('/classify-api', classifyApi);
+router.get('/api/classify-api', classifyApi);
 
 export default router;
