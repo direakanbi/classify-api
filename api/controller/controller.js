@@ -5,9 +5,10 @@ export const classifyApi = async (req, res) => {
     let data;
     try {
         data = req.query.number;
+
         num = parseInt(data);
         
-        // validate input.
+
         if (isNaN(num)) throw new Error("Invalid input. Please provide a number.");
 
         // assign values.
@@ -39,7 +40,7 @@ export const classifyApi = async (req, res) => {
 
         } else {
             res.status(400).json({
-                number: isNaN(num)  ? data : num,
+                number: 'alphabet',
                 error: true
             });
         };
